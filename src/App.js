@@ -1,22 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
+import ChooseComponent from './components.js/ChooseComponent';
+import { useSelector } from 'react-redux';
 
 function App() {
+  let chosen = 4;
+  const inputTextValue = useSelector(state => state.textInput.value);
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div>
+          <ChooseComponent choice={chosen} />
+        </div>
+        <h3>Valor do store: { inputTextValue }</h3>
       </header>
     </div>
   );
